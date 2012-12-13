@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grooveshark Mobile</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+    <meta property="og:title"  name="title" content="Grooveshark">
+    <meta property="og:url" content="http://html5.grooveshark.com/">
+    <meta property="og:image" content="http://grooveshark.com/webincludes/images/Grooveshark_Logo_Vertical_100.png">
+    <meta property="og:site_name" content="Grooveshark">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <link rel="stylesheet" type="text/css" href="/build/app.min.css?1353435964" >
+    <script type="text/javascript">
+        (function(w, d) {
+            var wl = w.location,
+                p = wl.href.substring(wl.href.indexOf(wl.host) + wl.host.length);
+            // !== means -1 as well, which means redirects from /s/ and alike
+            if (p.indexOf && p.indexOf('/#') !== 0) {
+                w.location = wl.protocol + '//' + wl.host + '/#!' + p;
+            }
+        })(window, document);
+    </script>
+</head>
+<body>
+    <div id="main-menu">
+        <div class="search-menu"></div>
+        <ul class="menu">
+            <li id="nav-home"><a href="/#!/">Home</a></li>
+            <li id="nav-popular"><a href="/#!/popular">Popular</a></li>
+            <li id="nav-stations"><a href="/#!/music/stations">Stations</a></li>
+            <li id="nav-queue"><a href="/#!/queue">Queue</a></li>
+        </ul>
+        <div id="user-menu" class="menu-loggedin"></div>
+        <ul class="menu-buttons">
+            <li class="menu-loggedout">
+                <a class="button" id="nav-login" href="/#!/login">Sign in</a>
+            </li>
+            <li class="menu-loggedin">
+                <a class="button" id="menu-logout">Sign out</a>
+            </li>
+            <li>
+                <a href="http://m.grooveshark.com/?noRedirect" target="_blank" class="button">Download our app!</a>
+            </li>
+            <li><a href="http://www.grooveshark.com/about" target="_blank" class="button">About Grooveshark</a></li>
+        </ul>
+        <div class="menu menu-bottom">
+            <div id="terms">
+                <a href="http://www.grooveshark.com/privacy" target="_blank">Privacy Policy</a>
+                <a href="http://www.grooveshark.com/dmca" target="_blank">Copyright</a>
+                <a href="http://www.grooveshark.com/terms" target="_blank">Terms</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <div class="topbar">
+            <div id="page-header" class="black-bar">
+                <a class="button header-left menu"></a>
+                <span class="page-title">Grooveshark</span>
+                <a href="/#!/login" id="header-login" class="button header-right header-login">Sign in</a>
+            </div>
+        </div>
+
+        <div id="app"></div>
+
+        <div class="bottombar">
+            <div id="station-controls" class="hidden"></div>
+            <div id="little-queue" class="little-queue black-bar hidden"></div>
+            <div id="flash" class="black-bar"></div>
+        </div>
+
+        <div class="fix-fixed"></div>
+    </div>
+
+    <div id="loading-center">
+        <div id="loading"></div>
+    </div>
+
+    <div id="queue" class="popover">
+        <div class="fix-fixed"></div>
+    </div>
+
+    <div class="fix-fixed"></div>
+
+    <div id="ads"><div id="ad"></div><a id="close-ad"><span>Close Ad</span></a></div>
+
+    <div id="ios-pin">
+        <h3>Grooveshark on your homescreen</h3>
+        <p>Want quick and easy access to the Grooveshark HTML5 webapp? Touch below to pin it to your homescreen. Tap anywhere to close this notification.</p>
+    </div>
+
+    <div id="hide-audio"></div>
+
+    
+
+    <script type="text/javascript">
+        window.GS = {
+            _cache:     {},
+            config:     {},
+            h:          {},
+            tpl:        {},
+            models:     {},
+            views:      {},
+            routers:    {},
+            ads:        {},
+            tracking:   {}
+        };
+        window.GS.config = {"country":{"ID":223,"CC1":0,"CC2":0,"CC3":0,"CC4":1073741824,"DMA":506,"IPR":0},"runMode":"production","sessionID":"66becc299c6ce335fa0f238492b44e37","IP":"173.48.167.85","user":{"City":null,"Country":"","Email":"craig@thrall.net","FName":"Craig Thrall","IsActive":true,"IsPremium":"0","LName":"","Picture":null,"State":null,"TSDOB":"1974-11-19","TSLogin":"2012-12-05 19:58:28","TSAdded":"2009-11-20 10:53:54","TSModified":"2012-12-05 19:58:28","UserID":1449880,"Zip":"0","NotificationEmailPrefs":"0","AuthRealm":1,"Privacy":"0","Flags":"65536","UploadsEnabled":true,"Sex":"M","About":null,"pictureSize":"t","userTrackingID":2763742381}};
+    </script>
+
+    <script type="text/javascript" src="/build/libs.min.js?1352754125"></script>
+    <script type="text/javascript" src="/build/app.min.js?1353435963"></script>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1894124-29']);
+
+        (function() {
+            // do not track things in 'dev' RUN_MODE
+            if (GS.config.runMode === 'dev') {
+                return;
+            }
+
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+                '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <script type="text/javascript">
+        var _comscore = _comscore || [];
+        _comscore.push({ c1: "2", c2: "8187464", c3: "", c4: "" });
+
+        (function() {
+            // do not track things in 'dev' RUN_MODE
+            if (GS.config.runMode === 'dev') {
+                return;
+            }
+
+            var s = document.createElement("script");
+            s.async = true;
+            s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") +
+                ".scorecardresearch.com/beacon.js";
+            var el = document.getElementsByTagName("script")[0];
+            el.parentNode.insertBefore(s, el);
+        })();
+    </script>
+</body>
+</html>

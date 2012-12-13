@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML5 Test</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script src="cordova.blackberry.js"></script>
+    <script type="text/javascript">
+      function load()
+      {
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/))
+        {
+          document.addEventListener("deviceready", onDeviceReady, false);
+        }
+        else 
+        {
+          onDeviceReady();
+        }       
+      }
+
+      function onDeviceReady()
+      {
+        $('#di-device-name').html(device.name);
+        $('#di-user-agent').html(navigator.userAgent);
+        $('#di-connection-status').html(navigator.connection.type);
+      }
+    </script>
+  </head>
+  <body onload="load();">
+    <div data-role="page">
+      <div data-role="header"><h2>HTML5 App</h2></div>
+      <div data-role="navbar">
+	<ul>
+	  <li><a href="#">Device Info</a></li>
+	  <li><a href="#">Photo</a></li>
+	  <li><a href="#">Network</a></li>
+	</ul>
+      </div>
+
+      <div id="info" data-rule="content">
+	<table data-role="table" data-mode="reflow">
+	  <tbody>
+	    <tr><td colspan="2"><h3>Device Info</h3></td></tr>	   
+	    <tr>
+	      <td>Device:</td>
+	      <td id="di-device-name"></td>
+	    </tr>
+	    <tr>
+	      <td>User agent:</td>
+	      <td id="di-user-agent"></td>
+	    </tr>
+	    <tr>
+	      <td>Connection Status:</td>
+	      <td id="di-connection-status"></td>
+	    </tr>
+	  </tbody>
+	</table>
+      </div>
+    </div>
+  </body>
+</html>
