@@ -37,13 +37,32 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+	console.log('Received Event: ' + id);
+	$('#splash').html('<center><h3>Ready</h3></center>');
+	$('#di-device-name').html(device.name);
+	$('#di-device-platform').html(device.platform);
+	$('#di-device-cordova').html(device.cordova);
+	$('#di-device-version').html(device.version);
+	$('#di-user-agent').html(navigator.userAgent);
+	$('#di-connection-status').html(navigator.connection.type);
+	hideAll();
+	$('#splash').show();	 	
     }
 };
+
+function onShowTab(tab)
+{
+    hideAll();
+
+    if (tab == 0) $('#info').show();
+    if (tab == 1) $('#photo').show();
+    if (tab == 2) $('#network').show();
+}
+
+function hideAll()
+{
+    $('#splash').hide();
+    $('#info').hide();
+    $('#photo').hide();
+    $('#network').hide();
+}
